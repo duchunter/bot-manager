@@ -1,0 +1,21 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.gp.botmanager"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.gp.botmanager"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.gp.botmanager"
+    }
+  },
+  "dependent_plugins": {}
+}
