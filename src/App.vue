@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <button @click="camera">Take picture</button>
+    <button @click="login">Login</button>
     <router-view/>
   </div>
 </template>
@@ -10,7 +11,21 @@
 export default {
   name: 'App',
   methods: {
-    camera: takePicture,
+    camera() {
+      try {
+        this.$parent.takePicture();
+      } catch (e) {
+        alert(e);
+      }
+    },
+
+    login() {
+      try {
+        this.$parent.login();
+      } catch (e) {
+        alert(e)
+      }
+    }
   }
 }
 </script>

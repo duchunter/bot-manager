@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "BotManager",
+  "short_name": "BotManager",
+  "version": "com.gp.botmanager",
+  "description": "Hybrid Vue + Cordova",
+  "author": "Gangplank",
+  "icons": [],
+  "start_url": "dist/index.html"
+}

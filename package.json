@@ -13,8 +13,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "auth0-js": "^9.4.2",
     "cordova-android": "^7.0.0",
+    "cordova-browser": "^5.0.3",
     "cordova-plugin-camera": "^4.0.2",
+    "cordova-plugin-customurlscheme": "^4.3.0",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-whitelist": "^1.3.3",
     "vue": "^2.5.2",
@@ -81,10 +84,17 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "cordova-plugin-customurlscheme": {
+        "URL_SCHEME": "com.gp.botmanager",
+        "ANDROID_SCHEME": "com.gp.botmanager",
+        "ANDROID_HOST": "gangplank.auth0.com",
+        "ANDROID_PATHPREFIX": "/cordova/com.gp.botmanager/callback"
+      }
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

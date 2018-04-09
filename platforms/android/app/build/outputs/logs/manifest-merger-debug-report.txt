@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 provider#android.support.v4.content.FileProvider
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:9-14:20
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:24:9-26:20
 	android:grantUriPermissions
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:92-126
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:24:92-126
 	android:authorities
 		INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:19-66
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:24:19-66
 	android:exported
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:67-91
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:24:67-91
 	android:name
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:127-181
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:24:127-181
 manifest
-ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
 MERGED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/27d504bb3ba21dd7f17d925eaa68de0d/AndroidManifest.xml:17:1-27:12
 MERGED from [:CordovaLib] /home/hyperion/duc/bot-manager/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
-INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-18:12
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:2:102-129
 		INJECTED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml
@@ -55,7 +55,7 @@ ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/Android
 	android:name
 		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:5:5-15:19
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:5:5-27:19
 MERGED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/27d504bb3ba21dd7f17d925eaa68de0d/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/27d504bb3ba21dd7f17d925eaa68de0d/AndroidManifest.xml:25:5-20
 	android:supportsRtl
@@ -67,7 +67,7 @@ MERGED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/cache
 	android:icon
 		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
 activity#com.gp.botmanager.MainActivity
-ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:6:9-23:20
 	android:label
 		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
 	android:launchMode
@@ -92,8 +92,30 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
 	android:name
 		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:11:13-16:29
+action#android.intent.action.VIEW
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:17-69
+	android:name
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:12:25-66
+category#android.intent.category.DEFAULT
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:13:17-76
+	android:name
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:13:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:14:17-78
+	android:name
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:14:27-75
+data
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:15:17-60
+	android:host
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:21:23-57
+	android:scheme
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:15:23-57
+	android:pathPrefix
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:21:58-114
 uses-sdk
-ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:16:5-74
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:28:5-74
 MERGED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/27d504bb3ba21dd7f17d925eaa68de0d/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/27d504bb3ba21dd7f17d925eaa68de0d/AndroidManifest.xml:21:5-23:54
 MERGED from [:CordovaLib] /home/hyperion/duc/bot-manager/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
@@ -101,16 +123,16 @@ MERGED from [:CordovaLib] /home/hyperion/duc/bot-manager/platforms/android/Cordo
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:24.1.1] /home/hyperion/.gradle/caches/transforms-1/files-1.1/support-v4-24.1.1.aar/27d504bb3ba21dd7f17d925eaa68de0d/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:16:42-71
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:28:42-71
 	android:minSdkVersion
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:16:15-41
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:28:15-41
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:17:5-81
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:29:5-81
 	android:name
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:17:22-78
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:29:22-78
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:13:13-116
+ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:25:13-116
 	android:resource
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:13:75-113
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:25:75-113
 	android:name
-		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:13:24-74
+		ADDED from /home/hyperion/duc/bot-manager/platforms/android/app/src/main/AndroidManifest.xml:25:24-74

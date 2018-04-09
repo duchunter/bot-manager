@@ -22,5 +22,18 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-customurlscheme": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-customurlscheme"
+    },
+    "is_top_level": true,
+    "variables": {
+      "URL_SCHEME": "com.gp.botmanager",
+      "ANDROID_SCHEME": "com.gp.botmanager",
+      "ANDROID_HOST": "gangplank.auth0.com",
+      "ANDROID_PATHPREFIX": "/cordova/com.gp.botmanager/callback"
+    }
   }
 }

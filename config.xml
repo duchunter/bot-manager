@@ -25,5 +25,12 @@
     </platform>
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
+        <variable name="URL_SCHEME" value="com.gp.botmanager" />
+        <variable name="ANDROID_SCHEME" value="com.gp.botmanager" />
+        <variable name="ANDROID_HOST" value="gangplank.auth0.com" />
+        <variable name="ANDROID_PATHPREFIX" value="/cordova/com.gp.botmanager/callback" />
+    </plugin>
     <engine name="android" spec="^7.0.0" />
+    <engine name="browser" spec="^5.0.3" />
 </widget>
