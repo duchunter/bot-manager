@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <button @click="camera">Take picture</button>
     <button @click="login">Login</button>
     <router-view/>
   </div>
@@ -10,15 +9,12 @@
 <script>
 export default {
   name: 'App',
-  methods: {
-    camera() {
-      try {
-        this.$parent.takePicture();
-      } catch (e) {
-        alert(e);
-      }
-    },
+  mounted() {
+    let token = window.localStorage.getItem('access_token');
+    alert("token: " + token);
+  },
 
+  methods: {
     login() {
       try {
         this.$parent.login();
