@@ -24,7 +24,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
-    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="com.gp.botmanager" />
         <variable name="ANDROID_SCHEME" value="com.gp.botmanager" />

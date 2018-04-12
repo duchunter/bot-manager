@@ -21,10 +21,6 @@
                 <data android:host="gangplank.auth0.com" android:pathPrefix="/cordova/com.gp.botmanager/callback" android:scheme="com.gp.botmanager" />
             </intent-filter>
         </activity>
-        <provider android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
-        </provider>
     </application>
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="26" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

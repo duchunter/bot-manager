@@ -6,9 +6,9 @@ import config from '../env.js';
 const CLIENT_ID = config.CLIENT_ID;
 const CLIENT_DOMAIN = config.CLIENT_DOMAIN;
 const AUDIENCE = config.AUDIENCE;
-const ID_TOKEN_KEY = 'id_token';
+const REDIRECT = config.REDIRECT;
+
 const ACCESS_TOKEN_KEY = 'access_token';
-const REDIRECT = 'com.gp.botmanager://gangplank.auth0.com/cordova/com.gp.botmanager/callback';
 
 var auth = new auth0.WebAuth({
   clientID: CLIENT_ID,
@@ -27,16 +27,8 @@ var router = new Router({
    mode: 'history',
 });
 
-export function getIdToken() {
-  return window.localStorage.getItem(ID_TOKEN_KEY);
-}
-
 export function getAccessToken() {
   return window.localStorage.getItem(ACCESS_TOKEN_KEY);
-}
-
-function clearIdToken() {
-  window.localStorage.removeItem(ID_TOKEN_KEY);
 }
 
 function clearAccessToken() {
@@ -44,8 +36,8 @@ function clearAccessToken() {
 }
 
 export function isLoggedIn() {
-  const idToken = getIdToken();
-  return !!idToken && !isTokenExpired(idToken);
+  const accessToken = getAccessToken();
+  return !!accessToken && !isTokenExpired(accessToken);
 }
 
 function getTokenExpirationDate(encodedToken) {

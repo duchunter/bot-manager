@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.gp.botmanager"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.gp.botmanager"
     },

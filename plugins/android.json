@@ -13,9 +13,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.gp.botmanager"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.gp.botmanager"
-    },
     "cordova-plugin-customurlscheme": {
       "URL_SCHEME": "com.gp.botmanager",
       "ANDROID_SCHEME": "com.gp.botmanager",
