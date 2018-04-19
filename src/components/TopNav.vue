@@ -3,7 +3,11 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button class="btn btn-danger">
+          <a class="navbar-brand">Bot Manager</a>
+          <button class="btn btn-danger"
+                  @click="addBot"
+                  data-toggle="modal"
+                  data-target="#bot-info-modal">
             Add new bot
           </button>
         </div>
@@ -15,6 +19,11 @@
 <script>
 export default {
   name: 'TopNav',
+  methods: {
+    addBot() {
+      this.$parent.infoMode = 'add';
+    }
+  }
 }
 </script>
 

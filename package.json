@@ -10,7 +10,9 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "android": "npm run build && cordova emulate android",
+    "web": "npm run build && cordova emulate browser"
   },
   "dependencies": {
     "auth0-js": "^9.4.2",
