@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <button @click="handleLogin">Log in</button>
         <button @click="checkToken">Check token</button>
-        <button @click="refresh">Refresh</button>
+        <button @click="sendLogAway">Send log</button>
       </div>
     </nav>
   </div>
@@ -12,18 +12,16 @@
 
 <script>
 import { login, isLoggedIn } from '../../utils/auth';
+import { sendLog } from '../../utils/api';
 
 export default {
   name: 'TopNav',
   methods: {
     handleLogin: login,
+    sendLogAway: sendLog,
     checkToken() {
       alert(`Access token: ${isLoggedIn() ? 'true' : 'false'}`);
     },
-
-    refresh() {
-      this.$parent.getBotList();
-    }
   }
 }
 </script>

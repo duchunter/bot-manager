@@ -35,6 +35,8 @@ export default {
         name: '',
         email: '',
         msg: '',
+        start: '',
+        stop: '',
       }
     }
   },
@@ -42,10 +44,12 @@ export default {
   methods: {
     getBotList() {
       this.botList = [];
-      let nameList = window.localStorage.getItem('bot_list');
-      nameList && nameList.split(', ').forEach(name => {
-        this.botList.push(getBotInfo(name));
-      });
+      setTimeout(() => {
+        let nameList = window.localStorage.getItem('bot_list');
+        nameList && nameList.split(', ').forEach(name => {
+          this.botList.push(getBotInfo(name));
+        });
+      }, 500);
     }
   }
 }

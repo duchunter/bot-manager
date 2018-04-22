@@ -1,8 +1,5 @@
 <template>
   <div>
-    <p v-if="botList.length == 0" style="text-align:center">
-      Nothing here
-    </p>
     <!-- A lot of buttons -->
     <transition-group class="container-fluid" name="list" tag="div">
       <div class="col-xs-4 btn list-item"

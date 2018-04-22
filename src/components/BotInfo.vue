@@ -12,33 +12,18 @@
           </button>
           <!-- Title -->
           <h4 class="modal-title">
-            {{infoMode == 'add' ? 'Add new bot' : bot.name}}
+            {{ infoMode == 'add' ? 'Add new bot' : 'Bot info' }}
           </h4>
         </div>
 
         <!-- Body -->
         <div class="modal-body">
-          <div class="form-horizontal" v-if="infoMode == 'add'">
+          <!-- String (input) item -->
+          <div class="form-horizontal" v-for="item in inputData">
             <div class="form-group">
               <!-- Label -->
               <label class="control-label col-sm-2">
-                Name:
-              </label>
-
-              <div class="col-sm-8">
-                <!-- Add mode -->
-                <input type="text"
-                       class="form-control"
-                       v-model="newBot.name">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-horizontal" v-for="item in editable">
-            <div class="form-group">
-              <!-- Label -->
-              <label class="control-label col-sm-2">
-                {{item[0].toUpperCase() + item.slice(1)}}:
+                {{ item[0].toUpperCase() + item.slice(1) }}:
               </label>
 
               <div class="col-sm-8">
@@ -52,10 +37,10 @@
                            && !editCheckbox[item]
                            && item != 'msg'"
                      class="form-control">
-                  {{bot[item]}}
+                  {{ bot[item] }}
                 </div>
 
-                <textarea rows="5"
+                <textarea rows="3"
                           readonly
                           v-if="infoMode == 'info'
                                 && !editCheckbox[item]
@@ -72,7 +57,7 @@
                        class="form-control"
                        v-model="botChanges[item]">
 
-                <textarea rows="5"
+                <textarea rows="3"
                           v-if="infoMode == 'info'
                                 && editCheckbox[item]
                                 && item == 'msg'"
@@ -83,7 +68,46 @@
 
               <!-- Edit button -->
               <div v-if="infoMode == 'info'" class="col-sm-1">
-                <button v-if="!editCheckbox[item]"
+                <button v-if="!editCheckbox[item] && item != 'name'"
+                        @click="setEdit(item)"
+                        class="btn btn-primary">
+                  Edit
+                </button>
+                <button v-if="editCheckbox[item]"
+                        @click="setEdit(item)"
+                        class="btn btn-danger">
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Picker item -->
+          <div class="form-horizontal"
+               v-if="infoMode == 'info'"
+               v-for="item in pickerData">
+            <div class="form-group">
+              <!-- Label -->
+              <label class="control-label col-sm-2">
+                {{ item[0].toUpperCase() + item.slice(1) }}:
+              </label>
+
+              <!-- Content -->
+              <div class="col-sm-8">
+                <!-- Info mode -->
+                <div class="form-control" v-if="!editCheckbox[item]">
+                  {{ parseTime(bot[item]) }}
+                </div>
+
+                <!-- Edit mode -->
+                <input v-if="editCheckbox[item]"
+                       type="time"
+                       v-model="botChanges[item]">
+              </div>
+
+              <!-- Edit button -->
+              <div class="col-sm-1">
+                <button v-if="!editCheckbox[item] && item != 'start'"
                         @click="setEdit(item)"
                         class="btn btn-primary">
                   Edit
@@ -110,14 +134,15 @@
                   @click="discardNewBot">
             Discard
           </button>
-          <button class="btn btn-info"
-                  data-dismiss="modal">
-            Close
+          <button v-if="isRunning()"
+                  @click="stopRunningTimer"
+                  class="btn btn-warning">
+            Stop timer
           </button>
           <button v-if="Object.keys(botChanges) != 0"
                   @click="editBotInfo"
                   class="btn btn-primary">
-            Submit changes
+            Set changes
           </button>
           <button v-if="infoMode == 'info'"
                   data-toggle="collapse"
@@ -125,6 +150,10 @@
                   @click="setDeleteMode('delete')"
                   class="btn btn-danger">
             Delete
+          </button>
+          <button class="btn btn-info"
+                  data-dismiss="modal">
+            Close
           </button>
           <div class="collapse" id="are-you-sure">
             <p>Are you sure ?</p>
@@ -147,17 +176,21 @@
 
 <script>
 import { addBot, editBot, removeBot } from '../../utils/model';
+import { setTimer, stopTimer, updateTimer } from '../../utils/api';
 
 export default {
   name: 'BotInfo',
   props: ['infoMode', 'bot'],
   data() {
     return {
-      editable: ['email', 'msg', 'start', 'stop'],
+      inputData: ['name', 'email', 'msg'],
+      pickerData: ['start', 'stop'],
       editCheckbox: {
         name: false,
         email: false,
         msg: false,
+        start: false,
+        stop: false,
       },
 
       newBot: {
@@ -186,6 +219,12 @@ export default {
   },
 
   methods: {
+    // Refresh
+    refresh() {
+      $('#bot-info-modal').modal('hide');
+      this.$parent.getBotList();
+    },
+
     // Handling checkbox
     setEdit(item) {
       if (!this.editCheckbox[item]) {
@@ -203,10 +242,34 @@ export default {
     },
 
     // Parse time string to date
-    parseDate(time) {
+    parseTime(time) {
       if (!time) return 'none';
       const date = new Date(parseInt(time));
-      return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+      return date.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    },
+
+    // Get real stop
+    getStop(stopString) {
+      let picker = stopString.split(':');
+
+      // Get the start-of-the-day point
+      let now = new Date();
+      let stop = now.getTime();
+      stop -= now.getHours() * 3600000;
+      stop -= now.getMinutes() * 60000;
+      stop -= now.getSeconds() * 1000;
+      if (now.getHours() < parseInt(picker[0])) {
+        stop += 24 * 3600000;
+      }
+
+      // Plus picker to get real stop
+      stop += parseInt(picker[0]) * 3600000 + parseInt(picker[1]) * 60000;
+      return stop;
     },
 
     // Clear data in add mode
@@ -227,24 +290,93 @@ export default {
       }
     },
 
+    // Check if bot is running
+    isRunning() {
+      return this.bot.stop
+        && parseInt(this.bot.stop) > new Date().getTime();
+    },
+
+    // Stop timer
+    stopRunningTimer() {
+      stopTimer(this.bot.email).then(isSuccess => {
+        if (isSuccess) {
+          editBot(this.bot.name, { stop: 'null' });
+          this.refresh();
+        }
+      });
+    },
+
     // Add bot
     addNewBot() {
       addBot(this.newBot);
-      $('#bot-info-modal').modal('hide');
-      this.$parent.getBotList();
+      this.refresh();
+    },
+
+    // Update running bot
+    updateRunningBot() {
+      let update = { email: this.bot.email };
+      if (this.botChanges.stop) {
+        update.stop = this.getStop(this.botChanges.stop);
+      }
+
+      if (this.botChanges.msg) {
+        update.msg = this.botChanges.msg;
+      }
+
+      updateTimer(update).then(isSuccess => {
+        if (isSuccess) {
+          editBot(this.bot.name, this.botChanges);
+          this.refresh();
+        } else {
+          this.discardChanges();
+        }
+      });
+    },
+
+    // Set timer
+    startBotTimer() {
+      setTimer({
+        stop: this.getStop(this.botChanges.stop),
+        email: this.bot.email,
+        msg: this.botChanges.msg || this.bot.msg,
+      }).then(isSuccess => {
+        if (isSuccess) {
+          editBot(this.bot.name, this.botChanges);
+          this.refresh();
+        } else {
+          this.discardChanges();
+        }
+      });
     },
 
     // Edit bot info
     editBotInfo() {
+      if (this.isRunning()) {
+        if (this.botChanges.stop || this.botChanges.msg) {
+          this.updateRunningBot();
+          return;
+        }
+      }
+
+      if (!this.isRunning()) {
+        if (this.botChanges.stop) {
+          this.startBotTimer();
+          return;
+        }
+      }
+
       editBot(this.bot.name, this.botChanges);
-      $('#bot-info-modal').modal('hide');
-      this.$parent.getBotList();
+      this.refresh();
     },
 
     deleteBot() {
+      if (this.isRunning()) {
+        alert('Please stop this bot first');
+        return;
+      }
+
       removeBot(this.bot.name);
-      $('#bot-info-modal').modal('hide');
-      this.$parent.getBotList();
+      this.refresh();
     },
   },
 }
