@@ -26,7 +26,7 @@ async function setTimer(bot) {
     } else {
       alert(`${e.response.status} - ${e.response.data}`);
     }
-    
+
     return false;
   }
 

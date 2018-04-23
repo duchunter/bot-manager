@@ -19,6 +19,14 @@
             {
               "xml": "<feature name=\"LaunchMyApp\"><param name=\"android-package\" value=\"nl.xservices.plugins.LaunchMyApp\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"SpinnerDialog\"><param name=\"android-package\" value=\"hu.dpal.phonegap.plugins.SpinnerDialog\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -54,6 +62,12 @@
       "ANDROID_HOST": "gangplank.auth0.com",
       "ANDROID_PATHPREFIX": "/cordova/com.gp.botmanager/callback",
       "PACKAGE_NAME": "com.gp.botmanager"
+    },
+    "cordova-plugin-spinnerdialog": {
+      "PACKAGE_NAME": "com.gp.botmanager"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.gp.botmanager"
     }
   },
   "dependent_plugins": {},
@@ -73,11 +87,37 @@
       "clobbers": [
         "window.plugins.launchmyapp"
       ]
+    },
+    {
+      "id": "cordova-plugin-spinnerdialog.SpinnerDialog",
+      "file": "plugins/cordova-plugin-spinnerdialog/www/spinner.js",
+      "pluginId": "cordova-plugin-spinnerdialog",
+      "merges": [
+        "window.plugins.spinnerDialog"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification",
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification_android",
+      "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-device": "2.0.1",
-    "cordova-plugin-customurlscheme": "4.3.0"
+    "cordova-plugin-customurlscheme": "4.3.0",
+    "cordova-plugin-spinnerdialog": "1.3.2",
+    "cordova-plugin-dialogs": "2.0.1"
   }
 }

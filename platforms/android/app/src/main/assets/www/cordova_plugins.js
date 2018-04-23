@@ -9,43 +9,35 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-camera.Camera",
-    "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
-    "pluginId": "cordova-plugin-camera",
-    "clobbers": [
-      "Camera"
-    ]
-  },
-  {
-    "id": "cordova-plugin-camera.CameraPopoverOptions",
-    "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-    "pluginId": "cordova-plugin-camera",
-    "clobbers": [
-      "CameraPopoverOptions"
-    ]
-  },
-  {
-    "id": "cordova-plugin-camera.camera",
-    "file": "plugins/cordova-plugin-camera/www/Camera.js",
-    "pluginId": "cordova-plugin-camera",
-    "clobbers": [
-      "navigator.camera"
-    ]
-  },
-  {
-    "id": "cordova-plugin-camera.CameraPopoverHandle",
-    "file": "plugins/cordova-plugin-camera/www/CameraPopoverHandle.js",
-    "pluginId": "cordova-plugin-camera",
-    "clobbers": [
-      "CameraPopoverHandle"
-    ]
-  },
-  {
     "id": "cordova-plugin-customurlscheme.LaunchMyApp",
     "file": "plugins/cordova-plugin-customurlscheme/www/android/LaunchMyApp.js",
     "pluginId": "cordova-plugin-customurlscheme",
     "clobbers": [
       "window.plugins.launchmyapp"
+    ]
+  },
+  {
+    "id": "cordova-plugin-spinnerdialog.SpinnerDialog",
+    "file": "plugins/cordova-plugin-spinnerdialog/www/spinner.js",
+    "pluginId": "cordova-plugin-spinnerdialog",
+    "merges": [
+      "window.plugins.spinnerDialog"
+    ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification",
+    "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification_android",
+    "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
     ]
   }
 ];
@@ -54,8 +46,9 @@ module.exports.metadata =
 {
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-device": "2.0.1",
-  "cordova-plugin-camera": "4.0.2",
-  "cordova-plugin-customurlscheme": "4.3.0"
+  "cordova-plugin-customurlscheme": "4.3.0",
+  "cordova-plugin-spinnerdialog": "1.3.2",
+  "cordova-plugin-dialogs": "2.0.1"
 };
 // BOTTOM OF METADATA
 });

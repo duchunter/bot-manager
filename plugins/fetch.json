@@ -27,5 +27,21 @@
       "ANDROID_HOST": "gangplank.auth0.com",
       "ANDROID_PATHPREFIX": "/cordova/com.gp.botmanager/callback"
     }
+  },
+  "cordova-plugin-spinnerdialog": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-spinnerdialog"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-dialogs": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-dialogs"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

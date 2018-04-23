@@ -263,7 +263,7 @@ export default {
       stop -= now.getHours() * 3600000;
       stop -= now.getMinutes() * 60000;
       stop -= now.getSeconds() * 1000;
-      if (now.getHours() < parseInt(picker[0])) {
+      if (now.getHours() > parseInt(picker[0])) {
         stop += 24 * 3600000;
       }
 
@@ -298,7 +298,9 @@ export default {
 
     // Stop timer
     stopRunningTimer() {
+      window.plugins.spinnerDialog.show('Stop timer', 'Please wait', true);
       stopTimer(this.bot.email).then(isSuccess => {
+        window.plugins.spinnerDialog.hide();
         if (isSuccess) {
           editBot(this.bot.name, { stop: 'null' });
           this.refresh();
@@ -314,6 +316,9 @@ export default {
 
     // Update running bot
     updateRunningBot() {
+      window.plugins.spinnerDialog.show(
+        'Sending update to server', 'Please wait', true
+      );
       let update = { email: this.bot.email };
       if (this.botChanges.stop) {
         update.stop = this.getStop(this.botChanges.stop);
@@ -324,6 +329,7 @@ export default {
       }
 
       updateTimer(update).then(isSuccess => {
+        window.plugins.spinnerDialog.hide();
         if (isSuccess) {
           editBot(this.bot.name, this.botChanges);
           this.refresh();
@@ -335,18 +341,33 @@ export default {
 
     // Set timer
     startBotTimer() {
-      setTimer({
-        stop: this.getStop(this.botChanges.stop),
-        email: this.bot.email,
-        msg: this.botChanges.msg || this.bot.msg,
-      }).then(isSuccess => {
-        if (isSuccess) {
-          editBot(this.bot.name, this.botChanges);
-          this.refresh();
-        } else {
-          this.discardChanges();
-        }
-      });
+      // Use appstate or not
+      navigator.notification.confirm(
+        'Do you want to login using appstate ?',
+        (button) => {
+          this.bot.useAppstate = button == 1;
+          window.plugins.spinnerDialog.show(
+            'Starting timer', 'Please wait', true
+          );
+          setTimer({
+            stop: this.getStop(this.botChanges.stop),
+            email: this.bot.email,
+            msg: this.botChanges.msg || this.bot.msg,
+            useAppstate: this.bot.useAppstate,
+          }).then(isSuccess => {
+            window.plugins.spinnerDialog.hide();
+            if (isSuccess) {
+              editBot(this.bot.name, this.botChanges);
+              this.refresh();
+            } else {
+              this.discardChanges();
+            }
+          });
+        },
+
+        'Before you go',
+        ['Yes','No']
+      );
     },
 
     // Edit bot info

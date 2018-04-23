@@ -13,6 +13,30 @@ module.exports = [
         "id": "cordova-plugin-device.DeviceProxy",
         "pluginId": "cordova-plugin-device",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-spinnerdialog/www/spinner.js",
+        "id": "cordova-plugin-spinnerdialog.SpinnerDialog",
+        "pluginId": "cordova-plugin-spinnerdialog",
+        "merges": [
+            "window.plugins.spinnerDialog"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "id": "cordova-plugin-dialogs.notification",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-dialogs/www/browser/notification.js",
+        "id": "cordova-plugin-dialogs.notification_browser",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -20,7 +44,9 @@ module.exports.metadata =
 {
     "cordova-plugin-device": "2.0.1",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-customurlscheme": "4.3.0"
+    "cordova-plugin-customurlscheme": "4.3.0",
+    "cordova-plugin-spinnerdialog": "1.3.2",
+    "cordova-plugin-dialogs": "2.0.1"
 }
 // BOTTOM OF METADATA
 });

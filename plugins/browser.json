@@ -16,6 +16,12 @@
     "cordova-plugin-customurlscheme": {
       "URL_SCHEME": "com.gp.botmanager",
       "PACKAGE_NAME": "com.gp.botmanager"
+    },
+    "cordova-plugin-spinnerdialog": {
+      "PACKAGE_NAME": "com.gp.botmanager"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.gp.botmanager"
     }
   },
   "dependent_plugins": {}

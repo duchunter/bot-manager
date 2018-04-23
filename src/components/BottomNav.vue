@@ -18,7 +18,13 @@ export default {
   name: 'TopNav',
   methods: {
     handleLogin: login,
-    sendLogAway: sendLog,
+    sendLogAway() {
+      window.plugins.spinnerDialog.show('Sending log', 'Please wait', true);
+      sendLog().then(result => {
+        window.plugins.spinnerDialog.hide();
+      });
+    },
+
     checkToken() {
       alert(`Access token: ${isLoggedIn() ? 'true' : 'false'}`);
     },
