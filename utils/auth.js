@@ -1,3 +1,5 @@
+// All code copied from Auth0 express.js example
+
 import decode from 'jwt-decode';
 import Router from 'vue-router';
 import auth0 from 'auth0-js';
