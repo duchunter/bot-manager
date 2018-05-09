@@ -15,7 +15,7 @@ import { login, isLoggedIn } from '../../utils/auth';
 import { sendLog } from '../../utils/api';
 
 export default {
-  name: 'TopNav',
+  name: 'BottomNav',
   methods: {
     handleLogin: login,
     sendLogAway() {

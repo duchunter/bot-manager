@@ -341,33 +341,33 @@ export default {
 
     // Set timer
     startBotTimer() {
-      // Use appstate or not
-      navigator.notification.confirm(
-        'Do you want to login using appstate ?',
-        (button) => {
-          this.bot.useAppstate = button == 1;
-          window.plugins.spinnerDialog.show(
-            'Starting timer', 'Please wait', true
-          );
-          setTimer({
-            stop: this.getStop(this.botChanges.stop),
-            email: this.bot.email,
-            msg: this.botChanges.msg || this.bot.msg,
-            useAppstate: this.bot.useAppstate,
-          }).then(isSuccess => {
-            window.plugins.spinnerDialog.hide();
-            if (isSuccess) {
-              editBot(this.bot.name, this.botChanges);
-              this.refresh();
-            } else {
-              this.discardChanges();
-            }
-          });
-        },
+      // Ask for code
+      let code = prompt("Enter code");
+      if (!code) {
+        alert("Must have code");
+        return;
+      }
 
-        'Before you go',
-        ['Yes','No']
+      // Trigger spinner
+      window.plugins.spinnerDialog.show(
+        'Starting timer', 'Please wait', true
       );
+
+      // Send api
+      setTimer({
+        code,
+        stop: this.getStop(this.botChanges.stop),
+        email: this.bot.email,
+        msg: this.botChanges.msg || this.bot.msg,
+      }).then(isSuccess => {
+        window.plugins.spinnerDialog.hide();
+        if (isSuccess) {
+          editBot(this.bot.name, this.botChanges);
+          this.refresh();
+        } else {
+          this.discardChanges();
+        }
+      });
     },
 
     // Edit bot info
