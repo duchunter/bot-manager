@@ -1,6 +1,8 @@
 # bot-manager
 
-> Hybrid Vue + Cordova
+> Hybrid Vue + Cordova mobile app controlling [Facebook Messenger Bot](https://github.com/duchunter/messenger-auto-reply)
+
+> You must have a [Facebook Messenger Bot](https://github.com/duchunter/messenger-auto-reply) installed on a cloud platform and an Auth0 account with ```admin``` role
 
 ## Build Setup
 
@@ -8,23 +10,32 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# run app on browser
+npm run web
 
-# run unit tests
-npm run unit
+# check requirements for specific platform
+cordova requirements
 
-# run e2e tests
-npm run e2e
+# run app on Android emulator
+npm run android
 
-# run all tests
-npm test
+# build .apk file for android
+cordova build android
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+>You can also add ios platform by runnning ```cordova platforms add ios``` and fullfill ```cordova requirements```
+
+## Setup environment variables
+
+Create ```env.js``` with following content:
+```javascript
+module.exports = {
+  CLIENT_ID: 'AUTH0_CLIENT_ID',
+  CLIENT_DOMAIN: 'AUTH0_CLIENT_ID',
+  AUDIENCE: 'AUTH0_AUDIENCE',
+  REDIRECT: 'com.gp.botmanager://gangplank.auth0.com/cordova/com.gp.botmanager/callback',
+  BOT_URL: 'YOUR_BOT_SERVER_URL',
+}
